@@ -1,2 +1,2 @@
-The-Wizard-of-iOS
+The Wizard of iOS
 =================
