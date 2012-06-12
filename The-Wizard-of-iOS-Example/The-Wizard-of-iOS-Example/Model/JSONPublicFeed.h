@@ -1,6 +1,6 @@
 //
-//  TwitterFollowers.h
-//  oaSis2
+//  JSONPublicFeed.h
+//  The-Wizard-of-iOS
 //
 //  Created by Antonio Henrique C B S Araújo on 5/15/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.

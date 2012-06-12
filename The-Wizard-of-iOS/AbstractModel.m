@@ -1,6 +1,6 @@
 //
-//  JLModel.m
-//  oaSis2
+//  AbstractModel.m
+//  The-Wizard-of-iOS
 //
 //  Created by Antonio Henrique C B S Araújo on 4/25/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -12,7 +12,7 @@
 @interface AbstractModel(PrivateMethods)
 - (void) load;
 - (void) loadWithParameters:(NSDictionary *) parameters;
-- (void) loadWithParameters:(NSDictionary *)parameters andHttpRequestMethod:(NSString *) httpRequestMethod;
+- (void) loadWithParameters:(NSDictionary *) parameters andHttpRequestMethod:(NSString *) httpRequestMethod;
 @end
 
 @implementation AbstractModel

@@ -1,6 +1,6 @@
 //
-//  ModelReflector.h
-//  oaSis2
+//  JSONModelReflector.h
+//  The-Wizard-of-iOS
 //
 //  Created by Antonio Henrique C B S Araújo on 5/14/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.

@@ -1,6 +1,6 @@
 //
-//  JLDataManager.m
-//  oaSis2
+//  DataController.m
+//  The-Wizard-of-iOS
 //
 //  Created by Antonio Henrique C B S Araújo on 4/25/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.

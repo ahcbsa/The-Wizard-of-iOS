@@ -209,10 +209,10 @@
 				497A3A561586C20500CCB6DB /* DataConstants.h */,
 				497A3A571586C20500CCB6DB /* DataController.h */,
 				497A3A581586C20500CCB6DB /* DataController.m */,
-				497A3A591586C20500CCB6DB /* JSONModelReflector.h */,
-				497A3A5A1586C20500CCB6DB /* JSONModelReflector.m */,
 				497A3A5B1586C20500CCB6DB /* ReflectionUtil.h */,
 				497A3A5C1586C20500CCB6DB /* ReflectionUtil.m */,
+				497A3A591586C20500CCB6DB /* JSONModelReflector.h */,
+				497A3A5A1586C20500CCB6DB /* JSONModelReflector.m */,
 				497A3A5D1586C20500CCB6DB /* XMLModelReflector.h */,
 				497A3A5E1586C20500CCB6DB /* XMLModelReflector.m */,
 			);
@@ -442,6 +442,7 @@
 				497A39DF1586BD8A00CCB6DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
