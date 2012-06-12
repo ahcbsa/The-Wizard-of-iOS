@@ -26,4 +26,4 @@ Future Development
 Have any suggestions of features or improvements? Let me know, it will be ready before you can cast any spell. Want to contribute? Just send me the pull requests and I will take a look at it for sure.
 
 
-Based on [Dumbledroid](https://github.com/leocadiotine/Dumbledroid ). Check it too!
+Based on [Dumbledroid](https://github.com/leocadiotine/Dumbledroid ). Check it out too!
