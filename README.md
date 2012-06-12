@@ -6,7 +6,7 @@ Framework that makes integration with RESTful services work like a charm.
 ARC Enabled
 -----------
 
-Needs ARC Enabled to work. Some dependencies are not ARC Ready, so you will need to enable it (by adding -fno-objc-arc on the target Build Phases) for some files . You can see which ones on the example project.
+Needs ARC Enabled to work. Some dependencies are not ARC Ready, so you will need to enable it (by adding "-fno-objc-arc" on the target Build Phases) for some files . You can see which ones on the example project.
 
 Dependencies
 ------------
@@ -14,11 +14,11 @@ Dependencies
 The framework has some dependencies. They are:
 
 Added as Submodules:
-TBXML
-AFNetworking
+-TBXML
+-AFNetworking
 
 Frameworks and Libraries:
-libz.dylib
+-libz.dylib
 
 Future Development
 ------------------
