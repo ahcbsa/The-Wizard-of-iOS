@@ -14,6 +14,6 @@
 
 }
 
-+ (void) loadWithObject:(AbstractModel *) object responseDataType:(ResponseDataType) responseDataType parameters:(NSDictionary *) parameters andHttpRequestMethod:(NSString *) httpRequestMethod;
++ (BOOL) loadWithObject:(AbstractModel *) object responseDataType:(ResponseDataType) responseDataType parameters:(NSDictionary *) parameters andHttpRequestMethod:(NSString *) httpRequestMethod;
 
 @end

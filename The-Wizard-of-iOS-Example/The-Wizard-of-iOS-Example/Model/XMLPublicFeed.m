@@ -13,22 +13,33 @@
 @synthesize statuses;
 
 - (Class) childrenClassForPropertyWithName:(NSString *) propertyName {
+    
     if ([propertyName isEqualToString:@"statuses"]) {
+        
         return [Tweet class];
+        
     }
+    
     return nil;
+    
 }
 
 - (id) init {
+    
     self = [super initWithUrl:@"https://api.twitter.com/1/statuses/public_timeline.xml?count=3&include_entities=true"];
+    
     if (self) {
         
     }
+    
     return self;
+    
 }
 
 - (void) load {
+    
     [super loadWithResponseDataType:XMLResponseDataType];
+    
 }
 
 @end

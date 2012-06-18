@@ -20,30 +20,53 @@
 @synthesize id = _id;
 @synthesize error = _error;
 @synthesize url = _url;
+@synthesize cacheDuration = _cacheDuration;
 
 #pragma mark - init methods
 
 
 - (id) initWithUrl:(NSString *)url {
+    
     self = [super init];
+    
     if (self) {
+        
         self.url = url;
+        self.cacheDuration = -1;
+        
     }
+    
     return self;
+    
+}
+
+- (id) initWithUrl:(NSString *)url andCacheDuration:(NSTimeInterval) cacheDuration {
+    
+    self = [super init];
+    
+    if (self) {
+        
+        self.url = url;
+        self.cacheDuration = cacheDuration;
+        
+    }
+    
+    return self;
+
 }
 
 #pragma mark - load content methods
 
-- (void) loadWithResponseDataType:(ResponseDataType) responseDataType {
-    [self loadWithParameters:nil andResponseDataType:responseDataType];
+- (BOOL) loadWithResponseDataType:(ResponseDataType) responseDataType {
+    return [self loadWithParameters:nil andResponseDataType:responseDataType];
 }
 
-- (void) loadWithParameters:(NSDictionary *) parameters andResponseDataType:(ResponseDataType) responseDataType {
-    [self loadWithParameters:parameters httpRequestMethod:@"GET" andResponseDataType:responseDataType];
+- (BOOL) loadWithParameters:(NSDictionary *) parameters andResponseDataType:(ResponseDataType) responseDataType {
+    return [self loadWithParameters:parameters httpRequestMethod:@"GET" andResponseDataType:responseDataType];
 }
 
-- (void) loadWithParameters:(NSDictionary *)parameters httpRequestMethod:(NSString *) httpRequestMethod andResponseDataType:(ResponseDataType) responseDataType {
-    [DataController loadWithObject:self responseDataType:responseDataType parameters:parameters andHttpRequestMethod:httpRequestMethod];
+- (BOOL) loadWithParameters:(NSDictionary *)parameters httpRequestMethod:(NSString *) httpRequestMethod andResponseDataType:(ResponseDataType) responseDataType {
+    return [DataController loadWithObject:self responseDataType:responseDataType parameters:parameters andHttpRequestMethod:httpRequestMethod];
 }
 
 @end

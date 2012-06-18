@@ -23,19 +23,22 @@
     NSString *_error;
     
     NSString *_url;
+    NSTimeInterval _cacheDuration;
     
 }
 
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *error;
 @property (nonatomic, strong) NSString *url;
+@property (nonatomic) NSTimeInterval cacheDuration;
 
 // init methods
 - (id) initWithUrl:(NSString *) url;
+- (id) initWithUrl:(NSString *)url andCacheDuration:(NSTimeInterval) cacheDuration;
 
 // load content methods
-- (void) loadWithResponseDataType:(ResponseDataType) responseDataType;
-- (void) loadWithParameters:(NSDictionary *) parameters andResponseDataType:(ResponseDataType) responseDataType;
-- (void) loadWithParameters:(NSDictionary *)parameters httpRequestMethod:(NSString *) httpRequestMethod andResponseDataType:(ResponseDataType) responseDataType;
+- (BOOL) loadWithResponseDataType:(ResponseDataType) responseDataType;
+- (BOOL) loadWithParameters:(NSDictionary *) parameters andResponseDataType:(ResponseDataType) responseDataType;
+- (BOOL) loadWithParameters:(NSDictionary *)parameters httpRequestMethod:(NSString *) httpRequestMethod andResponseDataType:(ResponseDataType) responseDataType;
 
 @end

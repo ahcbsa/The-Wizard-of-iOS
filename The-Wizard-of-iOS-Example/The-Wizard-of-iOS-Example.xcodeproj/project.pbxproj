@@ -37,6 +37,9 @@
 		497A3ADD1586C2A200CCB6DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 497A3AD81586C2A200CCB6DB /* User.m */; };
 		497A3ADE1586C2A200CCB6DB /* XMLPublicFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 497A3ADA1586C2A200CCB6DB /* XMLPublicFeed.m */; };
 		497A3AE51586CB9800CCB6DB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 497A3AE41586CB9800CCB6DB /* libz.dylib */; };
+		49AE06A215892B950076DECA /* MemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AE06A115892B940076DECA /* MemoryCache.m */; };
+		49AE06A615892BA90076DECA /* DiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AE06A515892BA90076DECA /* DiskCache.m */; };
+		49D919A1158BDFDD0033EF53 /* ObjectCopier.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D919A0158BDFDD0033EF53 /* ObjectCopier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +102,12 @@
 		497A3AD91586C2A200CCB6DB /* XMLPublicFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLPublicFeed.h; sourceTree = "<group>"; };
 		497A3ADA1586C2A200CCB6DB /* XMLPublicFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLPublicFeed.m; sourceTree = "<group>"; };
 		497A3AE41586CB9800CCB6DB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		49AE06A015892B940076DECA /* MemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryCache.h; sourceTree = "<group>"; };
+		49AE06A115892B940076DECA /* MemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryCache.m; sourceTree = "<group>"; };
+		49AE06A415892BA90076DECA /* DiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskCache.h; sourceTree = "<group>"; };
+		49AE06A515892BA90076DECA /* DiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiskCache.m; sourceTree = "<group>"; };
+		49D9199F158BDFDD0033EF53 /* ObjectCopier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectCopier.h; sourceTree = "<group>"; };
+		49D919A0158BDFDD0033EF53 /* ObjectCopier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectCopier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,10 +220,16 @@
 				497A3A581586C20500CCB6DB /* DataController.m */,
 				497A3A5B1586C20500CCB6DB /* ReflectionUtil.h */,
 				497A3A5C1586C20500CCB6DB /* ReflectionUtil.m */,
+				49D9199F158BDFDD0033EF53 /* ObjectCopier.h */,
+				49D919A0158BDFDD0033EF53 /* ObjectCopier.m */,
 				497A3A591586C20500CCB6DB /* JSONModelReflector.h */,
 				497A3A5A1586C20500CCB6DB /* JSONModelReflector.m */,
 				497A3A5D1586C20500CCB6DB /* XMLModelReflector.h */,
 				497A3A5E1586C20500CCB6DB /* XMLModelReflector.m */,
+				49AE06A015892B940076DECA /* MemoryCache.h */,
+				49AE06A115892B940076DECA /* MemoryCache.m */,
+				49AE06A415892BA90076DECA /* DiskCache.h */,
+				49AE06A515892BA90076DECA /* DiskCache.m */,
 			);
 			name = "The-Wizard-of-iOS";
 			path = "../../The-Wizard-of-iOS";
@@ -350,6 +365,9 @@
 				497A3ADC1586C2A200CCB6DB /* Tweet.m in Sources */,
 				497A3ADD1586C2A200CCB6DB /* User.m in Sources */,
 				497A3ADE1586C2A200CCB6DB /* XMLPublicFeed.m in Sources */,
+				49AE06A215892B950076DECA /* MemoryCache.m in Sources */,
+				49AE06A615892BA90076DECA /* DiskCache.m in Sources */,
+				49D919A1158BDFDD0033EF53 /* ObjectCopier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

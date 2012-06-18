@@ -13,22 +13,33 @@
 @synthesize list;
 
 - (Class) childrenClassForPropertyWithName:(NSString *) propertyName {
+    
     if ([propertyName isEqualToString:@"list"]) {
+        
         return [Tweet class];
+        
     }
+    
     return nil;
+    
 }
 
 - (id) init {
-    self = [super initWithUrl:@"https://api.twitter.com/1/statuses/public_timeline.json?count=3&include_entities=true"];
+    
+    self = [super initWithUrl:@"https://api.twitter.com/1/statuses/public_timeline.json?count=3&include_entities=true" andCacheDuration:60];
+    
     if (self) {
         
     }
+    
     return self;
+    
 }
 
 - (void) load {
+    
     [super loadWithResponseDataType:JSONResponseDataType];
+    
 }
 
 @end

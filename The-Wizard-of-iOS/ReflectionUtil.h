@@ -14,6 +14,7 @@
 + (NSDictionary *) dumpObjectInfo:(NSObject *) object;
 NSString * property_getType(objc_property_t property);
 SEL property_getSetter(objc_property_t property);
+NSArray * class_getProperties(Class klass);
 
 @end
 

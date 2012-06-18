@@ -50,27 +50,8 @@
                                methodArray, @"methods",
                                nil];
     
-//    NSLog(@"DUMP: %@", classDump);
     return classDump;
 }
-
-//const char * property_getType(objc_property_t property) {
-//    const char *attributes = property_getAttributes(property);
-//    NSLog(@"ATTRIBUTES: %s", attributes);
-//    char buffer[1 + strlen(attributes)];
-//    strcpy(buffer, attributes);
-//    char *state = buffer, *attribute;
-//    while ((attribute = strsep(&state, ",")) != NULL) {
-//        if (attribute[0] == 'T' && attribute[1] != '@') {
-//            return (const char *)[[NSData dataWithBytes:(attribute + 1) length:strlen(attribute) - 1] bytes];
-//        } else if (attribute[0] == 'T' && attribute[1] == '@' && strlen(attribute) == 2) {
-//            return "id";
-//        } else if (attribute[0] == 'T' && attribute[1] == '@') {
-//            return (const char *)[[NSData dataWithBytes:(attribute + 3) length:strlen(attribute) - 4] bytes];
-//        }
-//    }
-//    return "";
-//}
 
 NSString * property_getType(objc_property_t property) {
     
@@ -93,6 +74,19 @@ NSString * property_getType(objc_property_t property) {
     }
     
     return @"";
+}
+
+NSArray * class_getProperties(Class klass) {
+    u_int count;
+    objc_property_t* properties = class_copyPropertyList(klass, &count);
+    NSMutableArray* propertiesArray = [NSMutableArray arrayWithCapacity:count];
+    
+    for (int i = 0; i < count ; i++) {
+        const char* propertyName = property_getName(properties[i]);
+        [propertiesArray addObject:[NSString  stringWithUTF8String:propertyName]];
+    }
+    free(properties);
+    return propertiesArray;
 }
 
 @end
