@@ -22,6 +22,7 @@
 
 //Util
 #import "ObjectCopier.h"
+#import "ReflectionUtil.h"
 
 @implementation DataController
 
@@ -42,6 +43,8 @@
 #pragma mark - loading methods
 
 + (BOOL) loadWithObject:(AbstractModel *) object responseDataType:(ResponseDataType) responseDataType parameters:(NSDictionary *) parameters andHttpRequestMethod:(NSString *) httpRequestMethod {
+    
+    [DataController resetObjectFieldsWithObject:object];
     
     NSString *cacheKey = [self cacheKeyForObject:object withParameters:parameters];
     
@@ -147,6 +150,27 @@
 
     return NO;
 
+}
+
+#pragma mark - reseting methods
+
++ (void) resetObjectFieldsWithObject:(AbstractModel *) object {
+    
+    Class objectClass = [object class];
+    NSArray *objectProperties = class_getProperties(objectClass);
+    
+    for (NSString *propertyName in objectProperties) {
+        
+        objc_property_t property = class_getProperty(objectClass, [propertyName UTF8String]);
+        
+        if (property != NULL) {
+            
+            [object setValue:nil forKey:propertyName];
+            
+        }
+        
+    }
+    
 }
 
 @end

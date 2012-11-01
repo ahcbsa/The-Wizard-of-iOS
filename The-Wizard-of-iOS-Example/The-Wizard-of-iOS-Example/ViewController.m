@@ -99,6 +99,8 @@
 //                
 //            }
             
+            [xmlPublicFeed resetObject];
+            
         });
         
     });

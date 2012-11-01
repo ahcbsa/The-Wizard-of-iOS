@@ -41,4 +41,7 @@
 - (BOOL) loadWithParameters:(NSDictionary *) parameters andResponseDataType:(ResponseDataType) responseDataType;
 - (BOOL) loadWithParameters:(NSDictionary *)parameters httpRequestMethod:(NSString *) httpRequestMethod andResponseDataType:(ResponseDataType) responseDataType;
 
+// reset content methods
+- (void) resetObject;
+
 @end

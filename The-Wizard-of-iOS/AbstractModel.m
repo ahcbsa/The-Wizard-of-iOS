@@ -69,4 +69,10 @@
     return [DataController loadWithObject:self responseDataType:responseDataType parameters:parameters andHttpRequestMethod:httpRequestMethod];
 }
 
+#pragma mark - reset content methods
+
+- (void) resetObject {
+    [DataController resetObjectFieldsWithObject:self];
+}
+
 @end

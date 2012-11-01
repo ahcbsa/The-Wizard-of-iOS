@@ -15,5 +15,6 @@
 }
 
 + (BOOL) loadWithObject:(AbstractModel *) object responseDataType:(ResponseDataType) responseDataType parameters:(NSDictionary *) parameters andHttpRequestMethod:(NSString *) httpRequestMethod;
++ (void) resetObjectFieldsWithObject:(AbstractModel *) object;
 
 @end
