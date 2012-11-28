@@ -175,11 +175,15 @@
             
             if (isBoolean) {
                 
-                [object setValue:NO forKey:propertyName];
+                [object setValue:[NSNumber numberWithBool:NO] forKey:propertyName];
                 
-            } else if (isInteger || isFloat) {
-            
-                [object setValue:0 forKey:propertyName];
+            } else if (isInteger) {
+                
+                [object setValue:[NSNumber numberWithInteger:0] forKey:propertyName];
+                
+            } else if (isFloat) {
+                
+                [object setValue:[NSNumber numberWithFloat:0.0] forKey:propertyName];
                 
             } else {
                 
