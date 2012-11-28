@@ -162,10 +162,30 @@
     for (NSString *propertyName in objectProperties) {
         
         objc_property_t property = class_getProperty(objectClass, [propertyName UTF8String]);
+        NSString *propertyType = property_getType(property);
         
         if (property != NULL) {
             
-            [object setValue:nil forKey:propertyName];
+            NSString *booleanTypeEncodeString = [NSString stringWithUTF8String:@encode(BOOL)];
+            BOOL isBoolean = [propertyType isEqualToString:booleanTypeEncodeString];
+            NSString *integerTypeEncodeString = [NSString stringWithUTF8String:@encode(NSInteger)];
+            BOOL isInteger = [propertyType isEqualToString:integerTypeEncodeString];
+            NSString *floatTypeEncodeString = [NSString stringWithUTF8String:@encode(CGFloat)];
+            BOOL isFloat = [propertyType isEqualToString:floatTypeEncodeString];
+            
+            if (isBoolean) {
+                
+                [object setValue:NO forKey:propertyName];
+                
+            } else if (isInteger || isFloat) {
+            
+                [object setValue:0 forKey:propertyName];
+                
+            } else {
+                
+                [object setValue:nil forKey:propertyName];
+                
+            }
             
         }
         
