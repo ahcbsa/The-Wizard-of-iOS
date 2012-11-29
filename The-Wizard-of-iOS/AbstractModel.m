@@ -22,6 +22,7 @@
 @synthesize error = _error;
 @synthesize url = _url;
 @synthesize cacheDuration = _cacheDuration;
+@synthesize shouldReload = _shouldReload;
 
 #pragma mark - init methods
 
@@ -78,7 +79,7 @@
 
 #pragma mark - copy
 
-- (id) copy {
+- (id) mutableCopy {
     
     Class objectClass = [self class];
     id object = [[objectClass alloc] init];
