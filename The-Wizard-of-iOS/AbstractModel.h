@@ -32,7 +32,7 @@
 @property (nonatomic, strong) NSString *error;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic) NSTimeInterval cacheDuration;
-@property (nonatomic) BOOL shouldReload;
+@property (nonatomic) BOOL skipCache;
 
 // init methods
 - (id) initWithUrl:(NSString *) url;

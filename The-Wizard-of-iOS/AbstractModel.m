@@ -22,7 +22,7 @@
 @synthesize error = _error;
 @synthesize url = _url;
 @synthesize cacheDuration = _cacheDuration;
-@synthesize shouldReload = _shouldReload;
+@synthesize skipCache = _shouldReload;
 
 #pragma mark - init methods
 

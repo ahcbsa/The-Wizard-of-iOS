@@ -61,7 +61,7 @@
     DiskCache *diskCache = [DiskCache sharedCache];
     NSData *data = nil;
     
-    if ([diskCache hasCacheForKey:cacheKey] && !object.shouldReload) {
+    if ([diskCache hasCacheForKey:cacheKey] && !object.skipCache) {
         
         if ([diskCache cachedForKeyIsExpired:cacheKey]) {
             
