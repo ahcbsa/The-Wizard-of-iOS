@@ -8,6 +8,7 @@
 
 #import "AbstractModel.h"
 #import "DataController.h"
+#import "ObjectCopier.h"
 
 @interface AbstractModel(PrivateMethods)
 - (void) load;
@@ -73,6 +74,17 @@
 
 - (void) resetObject {
     [DataController resetObjectFieldsWithObject:self];
+}
+
+#pragma mark - copy
+
+- (id) copy {
+    
+    Class objectClass = [self class];
+    id object = [[objectClass alloc] init];
+    [ObjectCopier copyObject:self toObject:object];
+    return object;
+    
 }
 
 @end

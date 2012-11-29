@@ -139,7 +139,7 @@
         
         if (object.cacheDuration > 0) {
             
-            [memoryCache cacheObject:object forKey:cacheKey];
+            [memoryCache cacheObject:[object copy] forKey:cacheKey];
             [diskCache cacheData:data forKey:cacheKey withCacheDuration:object.cacheDuration];
             
         }
