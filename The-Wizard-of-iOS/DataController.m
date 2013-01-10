@@ -36,7 +36,7 @@
         
     }
     
-    return cacheKey;
+    return [NSString stringWithFormat:@"The_Wizard_of_iOS_%u", [cacheKey hash]];
     
 }
 
