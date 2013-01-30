@@ -95,8 +95,9 @@
     NSString *floatTypeEncodeString = [NSString stringWithUTF8String:@encode(CGFloat)];
     BOOL isFloat = [propertyType isEqualToString:floatTypeEncodeString];
     BOOL isNumber = ((propertyClass == [NSNumber class]) || [propertyClass isSubclassOfClass:[NSNumber class]]);
+    BOOL isDictionary = (propertyClass == [NSDictionary class] || [propertyClass isSubclassOfClass:[NSDictionary class]]);
     
-    if (isString || isBoolean || isInteger || isFloat || isNumber) {
+    if (isString || isBoolean || isInteger || isFloat || isNumber || isDictionary) {
 
         [object setValue:JSONObject forKey:nodeName];
         
