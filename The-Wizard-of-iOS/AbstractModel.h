@@ -31,8 +31,9 @@
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *error;
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic) NSTimeInterval cacheDuration;
-@property (nonatomic) BOOL skipCache;
+@property (nonatomic, assign) NSTimeInterval cacheDuration;
+@property (nonatomic, assign) BOOL skipCache;
+@property (nonatomic, assign) BOOL shouldLoadLastCachedVersion;
 
 // init methods
 - (id) initWithUrl:(NSString *) url;

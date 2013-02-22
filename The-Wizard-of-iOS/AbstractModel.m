@@ -23,6 +23,7 @@
 @synthesize url = _url;
 @synthesize cacheDuration = _cacheDuration;
 @synthesize skipCache = _shouldReload;
+@synthesize shouldLoadLastCachedVersion = _shouldLoadLastCachedVersion;
 
 #pragma mark - init methods
 
@@ -54,7 +55,7 @@
     }
     
     return self;
-
+    
 }
 
 #pragma mark - load content methods

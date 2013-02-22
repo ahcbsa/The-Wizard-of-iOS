@@ -23,6 +23,7 @@
 //Util
 #import "ObjectCopier.h"
 #import "ReflectionUtil.h"
+#import "Reachability.h"
 
 @implementation DataController
 
@@ -43,6 +44,8 @@
 #pragma mark - loading methods
 
 + (BOOL) loadWithObject:(AbstractModel *) object responseDataType:(ResponseDataType) responseDataType parameters:(NSDictionary *) parameters andHttpRequestMethod:(NSString *) httpRequestMethod {
+    
+    NetworkStatus networkStatus = -1;
     
     [DataController resetObjectFieldsWithObject:object];
     
@@ -65,29 +68,42 @@
         
         if ([diskCache cachedForKeyIsExpired:cacheKey]) {
             
-            //Request with HEAD method to get only the response headers and verify the last-modified field
-            AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:nil];
-            NSMutableURLRequest *request = [httpClient requestWithMethod:@"HEAD" path:object.url parameters:parameters];
-            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            Reachability *reachability = [Reachability reachabilityForInternetConnection];
+            networkStatus = [reachability currentReachabilityStatus];
             
-            [operation start];
-            [operation waitUntilFinished];
-            
-            if (!operation.error) {
+            if (networkStatus != NotReachable) {
                 
-                NSString *lastModifiedString = [[operation.response allHeaderFields] objectForKey:@"Last-Modified"]; 
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];  
-                [dateFormatter setDateFormat:@"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'"];  
-                [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];  
-                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]]; 
-                NSDate *lastModifiedServer = [dateFormatter dateFromString:lastModifiedString];
-                NSDate *localFileExpirationDate = [diskCache expirationDateForKey:cacheKey];
+                //Request with HEAD method to get only the response headers and verify the last-modified field
+                AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:nil];
+                NSMutableURLRequest *request = [httpClient requestWithMethod:@"HEAD" path:object.url parameters:parameters];
+                AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
                 
-                if ([lastModifiedServer compare:localFileExpirationDate] != NSOrderedDescending) {
+                [operation start];
+                [operation waitUntilFinished];
+                
+                if (!operation.error) {
                     
-                    data = [diskCache cachedForKey:cacheKey];
+                    NSString *lastModifiedString = [[operation.response allHeaderFields] objectForKey:@"Last-Modified"];
+                    NSLog(@"LAST MODIFIED: %@", lastModifiedString);
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    [dateFormatter setDateFormat:@"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'"];
+                    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+                    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+                    NSDate *lastModifiedServer = [dateFormatter dateFromString:lastModifiedString];
+                    NSDate *localFileExpirationDate = [diskCache expirationDateForKey:cacheKey];
+                    NSLog(@"LOCAL EXPIRATION DATE: %@", localFileExpirationDate);
+                    
+                    if ([lastModifiedServer compare:localFileExpirationDate] != NSOrderedDescending && lastModifiedServer) {
+                        
+                        data = [diskCache cachedForKey:cacheKey];
+                        
+                    }
                     
                 }
+                
+            } else if (object.shouldLoadLastCachedVersion) {
+                
+                data = [diskCache cachedForKey:cacheKey];
                 
             }
             
@@ -98,25 +114,32 @@
         }
         
     }
-            
+    
     if (!data) {
         
-        //Starts request
-        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:nil];
-        NSMutableURLRequest *request = [httpClient requestWithMethod:httpRequestMethod path:object.url parameters:parameters];
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        if (networkStatus == -1) {
+            Reachability *reachability = [Reachability reachabilityForInternetConnection];
+            networkStatus = [reachability currentReachabilityStatus];
+        }
         
-        [operation start];
-        [operation waitUntilFinished];
-        
-        if (!operation.error) {
+        if (networkStatus != NotReachable) {
+            //Starts request
+            AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:nil];
+            NSMutableURLRequest *request = [httpClient requestWithMethod:httpRequestMethod path:object.url parameters:parameters];
+            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
             
-            data = operation.responseData;
+            [operation start];
+            [operation waitUntilFinished];
             
+            if (!operation.error) {
+                
+                data = operation.responseData;
+                
+            }
         }
         
     }
-
+    
     if (data) {
         
         switch (responseDataType) {
@@ -147,9 +170,9 @@
         return YES;
         
     }
-
+    
     return NO;
-
+    
 }
 
 #pragma mark - reseting methods
