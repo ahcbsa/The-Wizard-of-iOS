@@ -84,14 +84,12 @@
                 if (!operation.error) {
                     
                     NSString *lastModifiedString = [[operation.response allHeaderFields] objectForKey:@"Last-Modified"];
-                    NSLog(@"LAST MODIFIED: %@", lastModifiedString);
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                     [dateFormatter setDateFormat:@"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'"];
                     [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
                     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
                     NSDate *lastModifiedServer = [dateFormatter dateFromString:lastModifiedString];
                     NSDate *localFileExpirationDate = [diskCache expirationDateForKey:cacheKey];
-                    NSLog(@"LOCAL EXPIRATION DATE: %@", localFileExpirationDate);
                     
                     if ([lastModifiedServer compare:localFileExpirationDate] != NSOrderedDescending && lastModifiedServer) {
                         
