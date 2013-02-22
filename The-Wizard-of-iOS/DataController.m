@@ -55,7 +55,7 @@
     MemoryCache *memoryCache = [MemoryCache sharedCache];
     AbstractModel *memoryCached = [memoryCache cachedForKey:cacheKey];
     
-    if (memoryCached) {
+    if (memoryCached && !object.skipCache) {
         [ObjectCopier copyObject:memoryCached toObject:object];
         return YES;
     }
