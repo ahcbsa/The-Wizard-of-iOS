@@ -55,7 +55,7 @@
     MemoryCache *memoryCache = [MemoryCache sharedCache];
     AbstractModel *memoryCached = [memoryCache cachedForKey:cacheKey];
     
-    if (memoryCached && !object.skipCache) {
+    if (memoryCached) {
         [ObjectCopier copyObject:memoryCached toObject:object];
         return YES;
     }
@@ -64,7 +64,7 @@
     DiskCache *diskCache = [DiskCache sharedCache];
     NSData *data = nil;
     
-    if ([diskCache hasCacheForKey:cacheKey] && !object.skipCache) {
+    if ([diskCache hasCacheForKey:cacheKey]) {
         
         if ([diskCache cachedForKeyIsExpired:cacheKey]) {
             
@@ -113,7 +113,7 @@
         
     }
     
-    if (!data) {
+    if (!data || object.skipCache) {
         
         if (networkStatus == -1) {
             Reachability *reachability = [Reachability reachabilityForInternetConnection];
