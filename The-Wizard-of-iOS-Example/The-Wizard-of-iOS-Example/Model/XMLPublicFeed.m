@@ -26,7 +26,7 @@
 
 - (id) init {
     
-    self = [super initWithUrl:@"https://api.twitter.com/1/statuses/public_timeline.xml?count=3&include_entities=true"];
+    self = [super initWithUrl:@"https://dl.dropboxusercontent.com/u/5044205/twitter_public_timeline.xml"];
     
     if (self) {
         

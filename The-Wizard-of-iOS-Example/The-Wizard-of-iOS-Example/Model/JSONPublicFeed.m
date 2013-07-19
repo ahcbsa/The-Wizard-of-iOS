@@ -26,7 +26,7 @@
 
 - (id) init {
     
-    self = [super initWithUrl:@"https://api.twitter.com/1/statuses/public_timeline.json?count=3&include_entities=true" andCacheDuration:60];
+    self = [super initWithUrl:@"https://dl.dropboxusercontent.com/u/5044205/twitter_public_timeline.json" andCacheDuration:60];
     
     if (self) {
         

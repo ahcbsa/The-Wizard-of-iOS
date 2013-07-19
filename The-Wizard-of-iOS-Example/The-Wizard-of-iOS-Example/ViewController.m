@@ -51,21 +51,21 @@
             NSLog(@"TOTAL COUNT: %d", [jsonPublicFeed.list count]);
             NSLog(@"-----------------------------------------------");
             
-//            for (Tweet *tweet in jsonPublicFeed.list) {
-//                
-//                NSLog(@"USER ID: %@", tweet.user.id);
-//                NSLog(@"USER NAME: %@", tweet.user.name);
-//                NSLog(@"USER SCREEN NAME: %@", tweet.user.screen_name);
-//                NSLog(@"USER PROFILE USE BACKGROUND IMAGE: %@", tweet.user.profile_image_url ? @"YES" : @"NO");
-//                NSLog(@"ID: %@", tweet.id);
-//                NSLog(@"TEXT: %@", tweet.text);
-//                NSLog(@"FAVORITED: %@", tweet.favorited ? @"YES" : @"NO");
-//                NSLog(@"RETWEETED: %@", tweet.retweeted ? @"YES" : @"NO");
-//                NSLog(@"RETWEET COUNT: %d", tweet.retweet_count);
-//                NSLog(@"CREATED AT: %@", tweet.created_at);
-//                NSLog(@"-----------------------------------------------");
-//                
-//            }
+            for (Tweet *tweet in jsonPublicFeed.list) {
+                
+                NSLog(@"USER ID: %@", tweet.user.id);
+                NSLog(@"USER NAME: %@", tweet.user.name);
+                NSLog(@"USER SCREEN NAME: %@", tweet.user.screen_name);
+                NSLog(@"USER PROFILE USE BACKGROUND IMAGE: %@", tweet.user.profile_image_url ? @"YES" : @"NO");
+                NSLog(@"ID: %@", tweet.id);
+                NSLog(@"TEXT: %@", tweet.text);
+                NSLog(@"FAVORITED: %@", tweet.favorited ? @"YES" : @"NO");
+                NSLog(@"RETWEETED: %@", tweet.retweeted ? @"YES" : @"NO");
+                NSLog(@"RETWEET COUNT: %d", tweet.retweet_count);
+                NSLog(@"CREATED AT: %@", tweet.created_at);
+                NSLog(@"-----------------------------------------------");
+                
+            }
             
         });
         
@@ -83,21 +83,21 @@
             NSLog(@"TOTAL COUNT: %d", [xmlPublicFeed.statuses count]);
             NSLog(@"-----------------------------------------------");
             
-//            for (Tweet *tweet in xmlPublicFeed.statuses) {
-//                
-//                NSLog(@"USER ID: %@", tweet.user.id);
-//                NSLog(@"USER NAME: %@", tweet.user.name);
-//                NSLog(@"USER SCREEN NAME: %@", tweet.user.screen_name);
-//                NSLog(@"USER PROFILE USE BACKGROUND IMAGE: %@", tweet.user.profile_image_url ? @"YES" : @"NO");
-//                NSLog(@"ID: %@", tweet.id);
-//                NSLog(@"TEXT: %@", tweet.text);
-//                NSLog(@"FAVORITED: %@", tweet.favorited ? @"YES" : @"NO");
-//                NSLog(@"RETWEETED: %@", tweet.retweeted ? @"YES" : @"NO");
-//                NSLog(@"RETWEET COUNT: %d", tweet.retweet_count);
-//                NSLog(@"CREATED AT: %@", tweet.created_at);
-//                NSLog(@"-----------------------------------------------");
-//                
-//            }
+            for (Tweet *tweet in xmlPublicFeed.statuses) {
+                
+                NSLog(@"USER ID: %@", tweet.user.id);
+                NSLog(@"USER NAME: %@", tweet.user.name);
+                NSLog(@"USER SCREEN NAME: %@", tweet.user.screen_name);
+                NSLog(@"USER PROFILE USE BACKGROUND IMAGE: %@", tweet.user.profile_image_url ? @"YES" : @"NO");
+                NSLog(@"ID: %@", tweet.id);
+                NSLog(@"TEXT: %@", tweet.text);
+                NSLog(@"FAVORITED: %@", tweet.favorited ? @"YES" : @"NO");
+                NSLog(@"RETWEETED: %@", tweet.retweeted ? @"YES" : @"NO");
+                NSLog(@"RETWEET COUNT: %d", tweet.retweet_count);
+                NSLog(@"CREATED AT: %@", tweet.created_at);
+                NSLog(@"-----------------------------------------------");
+                
+            }
             
             [xmlPublicFeed resetObject];
             
