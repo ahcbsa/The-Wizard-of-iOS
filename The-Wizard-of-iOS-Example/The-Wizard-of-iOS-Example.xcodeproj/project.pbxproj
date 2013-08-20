@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49098A9917C3A6BA009CCA06 /* NSString+Hashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 49098A9617C3A6BA009CCA06 /* NSString+Hashes.m */; };
 		497A39C41586BD8A00CCB6DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497A39C31586BD8A00CCB6DB /* UIKit.framework */; };
 		497A39C61586BD8A00CCB6DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497A39C51586BD8A00CCB6DB /* Foundation.framework */; };
 		497A39C81586BD8A00CCB6DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497A39C71586BD8A00CCB6DB /* CoreGraphics.framework */; };
@@ -45,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49098A9517C3A6BA009CCA06 /* NSString+Hashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hashes.h"; sourceTree = "<group>"; };
+		49098A9617C3A6BA009CCA06 /* NSString+Hashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hashes.m"; sourceTree = "<group>"; };
 		497A39BF1586BD8A00CCB6DB /* The-Wizard-of-iOS-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The-Wizard-of-iOS-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497A39C31586BD8A00CCB6DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		497A39C51586BD8A00CCB6DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49098A9317C3A6BA009CCA06 /* NSString-Hashes */ = {
+			isa = PBXGroup;
+			children = (
+				49098A9517C3A6BA009CCA06 /* NSString+Hashes.h */,
+				49098A9617C3A6BA009CCA06 /* NSString+Hashes.m */,
+			);
+			path = "NSString-Hashes";
+			sourceTree = "<group>";
+		};
 		497A39B41586BD8A00CCB6DB = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 		497A39C91586BD8A00CCB6DB /* The-Wizard-of-iOS-Example */ = {
 			isa = PBXGroup;
 			children = (
+				49098A9317C3A6BA009CCA06 /* NSString-Hashes */,
 				49ADEEBC16D7B49B00698D4C /* Reachability */,
 				497A3AB21586C23F00CCB6DB /* AFNetworking */,
 				497A3A3B1586C20500CCB6DB /* TBXML */,
@@ -389,6 +402,7 @@
 				49AE06A615892BA90076DECA /* DiskCache.m in Sources */,
 				49D919A1158BDFDD0033EF53 /* ObjectCopier.m in Sources */,
 				49ADEEBF16D7B4D900698D4C /* Reachability.m in Sources */,
+				49098A9917C3A6BA009CCA06 /* NSString+Hashes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

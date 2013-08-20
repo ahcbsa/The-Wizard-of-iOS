@@ -4,3 +4,6 @@
 [submodule "AFNetworking"]
 	path = AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "NSString-Hashes"]
+	path = NSString-Hashes
+	url = https://github.com/hypercrypt/NSString-Hashes.git

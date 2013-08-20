@@ -11,6 +11,7 @@
 //External
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
+#import "NSString+Hashes.h"
 
 //Model Reflectors
 #import "JSONModelReflector.h"
@@ -37,7 +38,7 @@
         
     }
     
-    return [NSString stringWithFormat:@"The_Wizard_of_iOS_%u", [cacheKey hash]];
+    return [NSString stringWithFormat:@"The_Wizard_of_iOS_%@", [cacheKey md5]];
     
 }
 
