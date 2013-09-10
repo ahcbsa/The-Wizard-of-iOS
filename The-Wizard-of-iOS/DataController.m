@@ -75,8 +75,9 @@
             if (networkStatus != NotReachable) {
                 
                 //Request with HEAD method to get only the response headers and verify the last-modified field
-                AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:nil];
-                NSMutableURLRequest *request = [httpClient requestWithMethod:@"HEAD" path:object.url parameters:parameters];
+                NSLog(@"URL: %@", object.url);
+                AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:object.url]];
+                NSMutableURLRequest *request = [httpClient requestWithMethod:@"HEAD" path:nil parameters:parameters];
                 AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
                 
                 [operation start];
@@ -123,8 +124,8 @@
         
         if (networkStatus != NotReachable) {
             //Starts request
-            AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:nil];
-            NSMutableURLRequest *request = [httpClient requestWithMethod:httpRequestMethod path:object.url parameters:parameters];
+            AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:object.url]];
+            NSMutableURLRequest *request = [httpClient requestWithMethod:httpRequestMethod path:nil parameters:parameters];
             AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
             
             [operation start];
